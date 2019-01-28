@@ -1,0 +1,38 @@
+{
+  "name": "firebase-tocca-user-api",
+  "version": "1.0.0",
+  "description": "user-profile-API-firebase",
+  "main": "index.js",
+  "scripts": {
+    "fblogin": "firebase login",
+    "funcs:package": "cpx '*{package.json,package-lock.json}' src/functions",
+    "prefuncs:deploy": "npm run funcs:package",
+    "funcs:deploy": "firebase deploy --only functions",
+    "funcs:install": "cd dist/functions && npm install",
+    "prefuncs:serve": "npm run funcs:deploy",
+    "funcs:serve": "firebase serve --only functions",
+    "prefuncs:shell": "npm run funcs:build && npm funcs:install",
+    "funcs:shell": "firebase experimental:functions:shell",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zougheb/firebase-tocca-user-API.git"
+  },
+  "author": "Mahmoud Zougheb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zougheb/firebase-tocca-user-API/issues"
+  },
+  "homepage": "https://github.com/Zougheb/firebase-tocca-user-API#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "cpx": "^1.5.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "firebase": "^5.8.1",
+    "firebase-admin": "^6.5.1",
+    "firebase-functions": "^2.1.0"
+  }
+}
